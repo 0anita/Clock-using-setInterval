@@ -1,15 +1,21 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 
 const App = () => {
 
 const [val, setVal] = useState(null);
 
-setTimeout(() =>{
+const h = setTimeout(() =>{
   setVal({
     title: "Anita"
   });
 }, 5000)
+useEffect( () => {
+ console.log('run me');
+ if (val!== null){
+  clearTimeout(h);
+ }
 
+}, [val]);
 
 // Making a clock using synchronous function
   return (
